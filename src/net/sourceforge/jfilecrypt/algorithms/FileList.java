@@ -26,7 +26,7 @@ public class FileList {
 	 */
 
 	public FileList(String files) {
-		this(files, ":");
+		this(files, ";");
 	}
 
 	/**
