@@ -3,6 +3,7 @@ package net.sourceforge.jfilecrypt.algorithms;
 import java.io.*;
 
 import java.security.*;
+import java.util.Arrays;
 
 import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
@@ -82,8 +83,8 @@ public class JCEAlgorithm implements Algorithm {
 		}
 		try {
 			cipher = Cipher.getInstance(getCipherInitString());
-			Key k = new SecretKeySpec(PasswordUtil.getKeyWithRightLength(password,
-			    getKeyLength()).getBytes(), algName);
+			Key k = new SecretKeySpec(Arrays.copyOfRange(PasswordUtil.getKeyWithRightLength(password,
+					getKeyLength()).getBytes(), 0, keyLength), algName);
 			if (!algName.equalsIgnoreCase("RC4")) {
 				IvParameterSpec ivs = new IvParameterSpec(getIV());
 				cipher.init(Cipher.DECRYPT_MODE, k, ivs);
@@ -116,8 +117,8 @@ public class JCEAlgorithm implements Algorithm {
 		}
 		try {
 			cipher = Cipher.getInstance(getCipherInitString());
-			Key k = new SecretKeySpec(PasswordUtil.getKeyWithRightLength(password,
-			    getKeyLength()).getBytes(), algName);
+			Key k = new SecretKeySpec(Arrays.copyOfRange(PasswordUtil.getKeyWithRightLength(password,
+			    getKeyLength()).getBytes(), 0, keyLength), algName);
 			if (!algName.equalsIgnoreCase("RC4")) {
 				IvParameterSpec ivs = new IvParameterSpec(getIV());
 				cipher.init(Cipher.ENCRYPT_MODE, k, ivs);
