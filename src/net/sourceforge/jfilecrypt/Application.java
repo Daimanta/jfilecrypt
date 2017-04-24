@@ -17,8 +17,8 @@ public class Application {
 	// They become extended and localized in the main() method
 	// TODO: Update this information before every release or commit!
 	public static String NAME = "jFileCrypt";
-	public static String VERSION = "0.3.1";
-	public static String RELEASE_DATE = "11. August 2014";
+	public static String VERSION = "0.3.3";
+	public static String RELEASE_DATE = "24. April 2017";
 
 	// These codes are used when application exits with an error
 	public static final byte EXIT_UNKNOWN_ALGORITHM = 10;
